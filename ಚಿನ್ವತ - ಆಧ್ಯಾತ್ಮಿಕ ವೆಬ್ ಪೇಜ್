@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chinvata.org - ಚಿನ್ವತ</title>
+
+<style>
+body{
+font-family:sans-serif;
+background:#FFF7E8;
+margin:0;
+padding-bottom:20px;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 20px;
+background:white;
+}
+
+header b{font-size:26px}
+
+.key-btn{
+background:none;
+border:none;
+font-size:22px;
+cursor:pointer;
+opacity:0.4;
+}
+
+.key-btn:hover{opacity:1}
+
+section{
+padding:20px;
+max-width:900px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+margin:15px 0;
+}
+
+/* WEBSITE LINKS */
+.web-link{
+display:block;
+color:#000;
+text-decoration:none;
+font-weight:bold;
+transition:0.2s;
+}
+
+.web-link:hover{
+color:#FF7A00;
+transform:translateX(4px);
+}
+
+.footer{
+background:#FF7A00;
+color:white;
+padding:25px;
+margin:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.admin-bar{
+display:none;
+background:#222;
+color:white;
+padding:15px;
+text-align:center;
+margin:20px;
+border-radius:15px;
+}
+
+.admin-bar button{
+padding:12px 30px;
+border:none;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+font-size:16px;
+}
+
+.save-btn{background:#00C853;color:white}
+.exit-btn{background:#ff3b30;color:white;margin-left:10px}
+
+body.editing [contenteditable="true"]{
+outline:1px dashed #FF7A00;
+padding:3px;
+border-radius:6px;
+}
+
+#loginBox{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 30px rgba(0,0,0,0.3);
+z-index:1000;
+text-align:center;
+width:280px;
+max-width:85%;
+}
+
+#loginBox input{
+padding:12px;
+width:90%;
+border:1px solid #ddd;
+border-radius:10px;
+margin:10px 0;
+}
+
+@media(max-width:600px){
+header b{font-size:22px}
+section h1{font-size:30px!important}
+section{padding:15px}
+.card{padding:18px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<b>chinvata.org</b>
+<button class="key-btn" onclick="openLogin()">🔑</button>
+</header>
+
+<section>
+<h1 style="font-size:42px;margin:5px 0"
+data-edit="heading" contenteditable="false">
+ಚಿನ್ವತ - ಆಧ್ಯಾತ್ಮಿಕ ವೆಬ್ ಪೇಜ್
+</h1>
+</section>
+
+<section>
+
+<h2 data-edit="webheading" contenteditable="false">
+ನಮ್ಮ ವೆಬ್ ಪೇಜ್ ಗಳು
+</h2>
+
+<div class="card">
+<a class="web-link"
+href="https://ramana-drab.vercel.app/"
+target="_blank"
+rel="noopener noreferrer">
+https://ramana-drab.vercel.app/
+</a>
+</div>
+
+<div class="card">
+<a class="web-link"
+href="https://adamsrobertkannada.vercel.app/"
+target="_blank"
+rel="noopener noreferrer">
+https://adamsrobertkannada.vercel.app/
+</a>
+</div>
+
+<div class="card">
+<a class="web-link"
+href="https://sri-nudi.vercel.app/"
+target="_blank"
+rel="noopener noreferrer">
+https://sri-nudi.vercel.app/
+</a>
+</div>
+
+</section>
+
+<section>
+<h2 data-edit="ramanaheading" contenteditable="false">
+ಶ್ರೀ ರಮಣರ ಆಶ್ರಮದಲ್ಲಿ ಇಂದು :
+</h2>
+
+<div class="card" data-edit="ramanaupdate" contenteditable="false">
+ಇಲ್ಲಿ ಇಂದಿನ ಅಪ್ಡೇಟ್ ಬರೆಯಿರಿ ದೊರೆ...
+</div>
+</section>
+
+<section>
+<h2 data-edit="ramakrishnaheading" contenteditable="false">
+ಶ್ರೀ ರಾಮಕೃಷ್ಣ ಆಶ್ರಮದಲ್ಲಿ ಇಂದು :
+</h2>
+
+<div class="card" data-edit="ramakrishnaupdate" contenteditable="false">
+ಇಲ್ಲಿ ಎರಡನೇ ಆಶ್ರಮದ ಅಪ್ಡೇಟ್ ಬರೆಯಿರಿ ದೊರೆ...
+</div>
+</section>
+
+<section>
+<h2 data-edit="contactheading" contenteditable="false">
+Contact / Collab
+</h2>
+
+<div class="card" data-edit="contact" contenteditable="false">
+Email: sunilvodaidea@gmail.com
+</div>
+</section>
+
+<div class="footer">
+© 2026 chinvata.org
+</div>
+
+<!-- ADMIN BAR -->
+
+<div class="admin-bar" id="adminBar">
+
+<span id="msg">
+Admin Mode ON - ಎಡಿಟ್ ಮಾಡಿ Save ಮಾಡಿ ದೊರೆ
+</span>
+
+<br><br>
+
+<button class="save-btn" onclick="savePage()">
+💾 ADMIN SAVE
+</button>
+
+<button class="exit-btn" onclick="exitAdmin()">
+✖ Exit Admin
+</button>
+
+</div>
+
+<!-- LOGIN BOX -->
+
+<div id="loginBox">
+
+<h3>🔑 Admin Login</h3>
+
+<input type="password" id="pass"
+placeholder="Admin Password ಹಾಕಿ ದೊರೆ">
+
+<br>
+
+<button
+style="padding:10px 25px;background:#FF7A00;color:white;border:none;border-radius:15px;font-weight:bold"
+onclick="checkPass()">
+Login
+</button>
+
+<button
+style="padding:10px 20px;border:none;border-radius:15px"
+onclick="closeLogin()">
+Cancel
+</button>
+
+<p id="err" style="color:red"></p>
+
+</div>
+
+<script>
+
+let PASSWORD = "chinvata123";
+
+// OPEN LOGIN
+function openLogin(){
+document.getElementById('loginBox').style.display='block';
+document.getElementById('pass').value='';
+document.getElementById('err').innerText='';
+}
+
+// CLOSE LOGIN
+function closeLogin(){
+document.getElementById('loginBox').style.display='none';
+}
+
+// ADMIN LOGIN
+function checkPass(){
+
+let p=document.getElementById('pass').value;
+
+if(p===PASSWORD){
+
+closeLogin();
+
+document.body.classList.add('editing');
+
+document.querySelectorAll('[data-edit]').forEach(e=>{
+e.contentEditable=true;
+});
+
+document.getElementById('adminBar').style.display='block';
+
+alert('Welcome Admin ದೊರೆ! ಈಗ ಎಡಿಟ್ ಮಾಡಬಹುದು!');
+
+}else{
+
+document.getElementById('err').innerText=
+'❌ ತಪ್ಪು Password ದೊರೆ!';
+
+}
+
+}
+
+// SAVE PAGE
+function savePage(){
+
+let data={};
+
+document.querySelectorAll('[data-edit]').forEach(e=>{
+data[e.dataset.edit]=e.innerHTML;
+});
+
+localStorage.setItem('chinvata_final',JSON.stringify(data));
+
+document.getElementById('msg').innerText=
+'✅ Saved ದೊರೆ! ಸೇವ್ ಆಯ್ತು!';
+
+setTimeout(()=>{
+document.getElementById('msg').innerText=
+'Admin Mode ON - ಎಡಿಟ್ ಮಾಡಿ Save ಮಾಡಿ ದೊರೆ';
+},3000);
+
+}
+
+// LOAD SAVED PAGE
+function loadPage(){
+
+let saved=localStorage.getItem('chinvata_final');
+
+if(saved){
+
+try{
+
+let data=JSON.parse(saved);
+
+document.querySelectorAll('[data-edit]').forEach(e=>{
+
+if(data[e.dataset.edit]!==undefined){
+e.innerHTML=data[e.dataset.edit];
+}
+
+});
+
+}catch(error){
+
+console.log('Saved data could not be loaded');
+
+}
+
+}
+
+}
+
+// EXIT ADMIN
+function exitAdmin(){
+
+document.body.classList.remove('editing');
+
+document.querySelectorAll('[data-edit]').forEach(e=>{
+e.contentEditable=false;
+});
+
+document.getElementById('adminBar').style.display='none';
+
+}
+
+// LOAD WHEN PAGE OPENS
+window.addEventListener('DOMContentLoaded',loadPage);
+
+</script>
+
+</body>
+</html>
